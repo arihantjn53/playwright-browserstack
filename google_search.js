@@ -11,7 +11,7 @@ const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString
     'os': 'osx',
     'os_version': 'catalina',
     'name': 'My first playwright test',
-    'build': 'playwright-build-1',
+    'build': process.env.BROWSERSTACK_BUILD_NAME || 'playwright-build-1',
     'browserstack.username': process.env.BROWSERSTACK_USERNAME || 'YOUR_USERNAME',
     'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY || 'YOUR_ACCESS_KEY',
     'client.playwrightVersion': clientPlaywrightVersion  // Playwright version being used on your local project needs to be passed in this capability for BrowserStack to be able to map request and responses correctly
