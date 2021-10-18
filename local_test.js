@@ -13,14 +13,15 @@ const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString
     'name': 'Playwright sample Local test',
     'build': process.env.BROWSERSTACK_BUILD_NAME || 'playwright-build-3',
     'browserstack.local': 'true',
-    'browserstack.username': 'arihantjain9',
-    'browserstack.accessKey': 'KRWDSPqcquMZchhgFpje',
+    'browserstack.username': 'ameyaj_ai1GzQ-azure',
+    'browserstack.accessKey': 'q1XRpTsnDzRpmyfhphes',
     'client.playwrightVersion': clientPlaywrightVersion  // Playwright version being used on your local project needs to be passed in this capability for BrowserStack to be able to map request and responses correctly
   };
+  console.log(caps);
   console.log(JSON.stringify(caps));
   console.log(`wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`);
   const browser = await chromium.connect({
-    wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,
+    wsEndpoint: `wss://cdp-k8s-stagace.bsstag.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,
   });
   const page = await browser.newPage();
   await page.goto('http://localhost:45454');
