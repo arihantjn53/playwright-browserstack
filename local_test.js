@@ -11,7 +11,7 @@ const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString
     'os': 'osx',
     'os_version': 'catalina',
     'name': 'Playwright sample Local test',
-    'build': 'playwright-build-3',
+    'build': process.env.BROWSERSTACK_BUILD_NAME || 'playwright-build-3',
     'browserstack.local': 'true',
     'browserstack.username': process.env.BROWSERSTACK_USERNAME || 'YOUR_USERNAME',
     'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY || 'YOUR_ACCESS_KEY',
